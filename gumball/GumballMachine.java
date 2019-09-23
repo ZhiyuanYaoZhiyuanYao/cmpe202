@@ -97,16 +97,16 @@ public class GumballMachine
 
     public void turnCrank()
     {
+        if(!hasGumBallLeft()){
+            System.out.println( "No More Gumballs!  Sorry, can't return your coins." ) ;
+            return;
+        }
+
         if ( this.receivedAmount >= this.minimumOperatingAmount )
         {
-            if ( hasGumBallLeft() ) {
-                this.gumballStock-- ;
-                this.receivedAmount = 0;
-                System.out.println( "Thanks for your purchase!  Gumball Ejected!" ) ;
-            }
-            else{
-                System.out.println( "No More Gumballs!  Sorry, can't return your coins." ) ;
-            }
+            this.gumballStock-- ;
+            this.receivedAmount = 0;
+            System.out.println( "Thanks for your purchase!  Gumball Ejected!" ) ;
         }
         else
         {
